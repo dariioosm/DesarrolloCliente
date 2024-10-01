@@ -74,5 +74,19 @@ function testUnidad2(){
     document.write(parseInt(cadena));
     document.write("<br/>");
     document.write(parseFloat(cadena));
+    const libs=["react","vue","angular"];
+    document.write("<br/>");
+    document.write(`Este curso trata de ${libs[0]}`);
+    document.write("<br/>");
+    const l = libs.length;
+    //operador ternario -- variable = condicion ? valorSiVerdadero : valorSiFalso;
+    let cuantitativo= l ==1 ? "Singular":"Plural";
+    document.write(cuantitativo);
+    document.write("<br/>");
+    document.write(
+        `${l>1 ? `Estas ${l} bibliotecas `:` Esta biblioteca`}: ${libs.join(", ")}`
+    );
+    document.write("<br/>");
+    
 }
     
