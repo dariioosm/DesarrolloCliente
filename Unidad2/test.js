@@ -87,6 +87,10 @@ function testUnidad2(){
         `${l>1 ? `Estas ${l} bibliotecas `:` Esta biblioteca`}: ${libs.join(", ")}`
     );
     document.write("<br/>");
+
+    function testUnidad2_1(){
+        
+    }
     
 }
     
