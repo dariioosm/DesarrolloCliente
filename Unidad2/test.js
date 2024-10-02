@@ -87,10 +87,18 @@ function testUnidad2(){
         `${l>1 ? `Estas ${l} bibliotecas `:` Esta biblioteca`}: ${libs.join(", ")}`
     );
     document.write("<br/>");
-
-    function testUnidad2_1(){
-        
-    }
     
+}
+function testUnidad2_1(){
+    let nombre;
+    let nota;
+    nombre= prompt('Escriba su nombre:'," ");
+    nota=prompt('Escriba su nota: ');
+    if(nota >=5){
+        alert(nombre+" ha aprobado");
+    }else{
+        alert (nombre+" ha suspendido");
+    }
+
 }
     
