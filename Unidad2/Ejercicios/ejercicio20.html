@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Crear un programa que muestre un menú como este:
+            Salir
+            Sumatorio
+            Factorial
+            Tras mostrar el menú, el programa debe leer un número del 1 al tres si se elige 1, el programa acaba.
+            Si se elige 2 se calcula el sumatorio del número, si se elige 3 se calcula el factorial (en ambos casos el 
+            programa pedirá escribir el número sobre el que se calcula el sumatorio o el factorial). 
+            Tras calcular el sumatorio o el factorial e indicar el resultado, el programa volverá a mostrar el menú y así sucesivamente
+        */
+       
+        do{
+            let opcion= prompt('1.Salir \t 2.Sumatorio\t3.Factorial')
+            let numero=prompt('Introduce el numero del que quieras saber el sumatorio')
+            switch(opcion){
+                case 2:
+                    let numero=prompt('Introduce el numero del que quieras saber el sumatorio')
+                    parseInt(numero)
+                    for(let i=1;i<=numero;i++){
+                        let resultado=i++
+                    }
+                    document.write('El sumatorio de '+numero +'es: '+resultado)
+                    break
+                case 3:
+                let numero2=prompt('Introduce el numero del que quieras saber el factorial')
+                    parseInt(numero2)
+                    for(let i=1;i<=numero2;i++){
+                        let resultado=i*i
+                    }
+                    document.write('El factorial de '+numero2 +'es: '+resultado)
+                    break
+            }
+        }
+       while(opcion!=0)
+    </script>
+</body>
+</html>
