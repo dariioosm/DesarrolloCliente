@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <script>
+            /*
+            Hacer un programa que pida un número, luego pide a tu compañero que intente adivinarlo. Tienes 5 oportunidades. 
+            Utiliza la sentencia break para salir del bucle si lo adivina antes.
+            */
+           let adivina=prompt("introduce el numero para adivinar");
+           parseInt(adivina);
+           for(let i=0; i<=5;i++){
+            let acierto=prompt('Introduce el numero que crees que es (Numero de intentos) '+i);
+            parseInt(acierto);
+            if(acierto===adivina){
+                break;
+                
+            }
+           }
+           alert("has acertado el numero "+adivina);
+        </script>
+    </body>
+</html>
