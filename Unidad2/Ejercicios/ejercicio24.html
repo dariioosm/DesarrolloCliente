@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let mes=prompt('introduce el mes')
+        let correcto=true
+        do{
+            switch(mes){
+                case '4':
+                case '6':
+                case '9':
+                case '11':
+                    alert('el mes tiene 30 dias')
+                    break
+                case '1':
+                case '3':
+                case '5':
+                case '7':
+                case '8':
+                case '10':
+                case '12':
+                    alert('el mes tiene 31 dias')
+                case '2':
+                    alert('el mes tiene 28 dias o 29 si es año bisiesto')
+                    break
+                default:
+                    alert('no has introducido el mes en formato correcto')
+                    correcto=false
+            }
+        }while(!correcto)
+    </script>
+</body>
+</html>
