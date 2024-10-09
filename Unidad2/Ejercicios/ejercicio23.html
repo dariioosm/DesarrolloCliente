@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Calcula cuantos números pares hay entre dos introducidos
+        */
+       let min=prompt('introduce limite minimo')
+       let max=prompt('introduce limite maximo')
+       let cont;
+       cont=parseInt(cont)
+       min=parseInt(min)
+       max=parseInt(max)
+       for(let i=min; i<=max;i++){
+        if(i%2==0){     
+            cont++
+        }
+       }
+       alert('entre los numeros: '+min+' y '+max+' hay '+i+' numeros pares')
+    </script>
+</body>
+</html>
