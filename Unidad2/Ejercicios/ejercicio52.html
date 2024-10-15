@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numero=prompt('Introduce un numero en base 10');
+        let base=prompt('A que base lo quieres pasar (2-9)');
+        numero=parseInt(numero);
+        base=parseInt(base);
+        if(isNaN(numero)||numero <1){
+            alert('numero introducido no es correcto')
+        }else if(isNaN(base) || base <2 || base >9)
+            alert('numero introducido no es correcto')
+        else{
+            let cociente =numero;
+            let resto='';
+            let r;
+            while(cociente >=base){
+                r=cociente % base;
+                cociente = cociente/base;
+                cociente=parseInt(cociente);
+                resto = String(r)+resto;
+            }
+            resto = String(cociente)+resto;
+            document.write('El numero '+numero+' en base '+base+' es '+resto);
+        }
+
+
+    </script>
+</body>
+</html>
