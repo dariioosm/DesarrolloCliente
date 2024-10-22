@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    Hacer un programa mediante una función que verifique si un número es múltiplo de 3. 
+    Que el script se pueda repetir si el usuario quiere
+    -->
+    <script>
+        function isMultiplo(){
+            let continua
+            do{
+                
+            let numero= prompt('Introduce un numero');
+            numero =parseInt(numero);
+            if(numero %3==0){
+                alert(numero +' es multiplo de 3');
+            }else{
+                alert(numero+' no es multiplo de 3')
+            }
+            continua = prompt('Desea continuar (S/N)').toUpperCase()
+            
+            }while(continua=='N')
+        }
+        isMultiplo();
+    </script>
+
+</body>
+</html>
