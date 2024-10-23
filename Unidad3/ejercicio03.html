@@ -7,6 +7,14 @@
 </head>
 <body>
     <!-- Hacer un programa mediante una función que reciba tres valores y devuelva el mayor de ellos. -->
-     
+     <script>
+        const mayor=(x,y,z)=> {
+            let numeros = [x,y,z];
+            let numeroMax= numeros.reduce((max, numero)=> numero >max ? numero:max);
+            return numeroMax;
+        }
+        document.write(mayor(4,5,6))
+
+     </script>
 </body>
 </html>
