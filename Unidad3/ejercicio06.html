@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Hacer un programa mediante una función que permita calcular la suma de dos valores que se introducen por teclado.
+        Visualizar el resultado en el cuerpo de la página Web.
+        */
+       function suma(){
+        let numero1=prompt('Introduce el primer sumando')
+        let numero2=prompt('Introduce el segundo sumando')
+        numero1=parseInt(numero1);
+        numero2=parseInt(numero2)
+        suma= numero1+numero2;
+        document.write('El resultado de '+numero1+' + '+numero2+' es: '+suma)
+       }
+       suma()
+    </script>
+</body>
+</html>
