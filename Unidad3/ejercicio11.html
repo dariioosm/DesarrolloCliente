@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* Hacer un programa que, mediante una función e introducidos previamente dos números y un operador, realice el cálculo. */
+        function Caluladora(){
+            let num1=(prompt('introduce el primer numero: '))
+            let num2=(prompt('introduce el primer numero: '))
+            num1=parseInt(num1)
+            num2=parseInt(num2)
+            let operador=(prompt('Introduzca el simbolo de la operacion que desee reailzar + - * /'))
+            switch(operador){
+                case '+':
+                    let suma = num1+num2;
+                    alert('El resultado es '+suma)
+                    break;
+                case'-':
+                    let resta= num1-num2;
+                    alert('El resultado es '+resta);
+                    break;
+                case'*': 
+                    let multiplicacion=num1*num2
+                    alert('El resultado es '+multiplicacion)
+                    break;
+                case'/': 
+                    let division = num1/num2
+                    alert('El resultado es '+division)
+                    break;
+            }
+        }
+        Caluladora();
+    </script>
+</body>
+</html>
