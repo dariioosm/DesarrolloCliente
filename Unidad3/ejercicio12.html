@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const fechaActual= new Date();
+        document.write('<h4>Fecha del sistema<h4/> <br>')
+        document.write(fechaActual)
+        const finMaya= new Date('2012,11,21');
+        document.write('<h4>Fecha del fin del mundo maya<h4/>')
+        document.write('<br>'+finMaya)
+        function calculo(fechaActual,finMaya){
+            let resultado= fechaActual-finMaya;
+            resultado=Math.floor(resultado/(1000*3600*24))
+            return document.write('<br> Han pasado '+resultado+' dias')
+        }
+        calculo(fechaActual,finMaya)
+    </script>
+</body>
+</html>
