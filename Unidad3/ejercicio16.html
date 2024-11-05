@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Almacenamiento{
+            usuario= new Array;
+              passwd=new Array;
+             pregunta=new Array
+             respuesta=new Array
+
+        }
+
+        aviso=prompt('1.- Alta \n 2.- Baja \n 3.- Consulta \n 4.- Modificacion \n 5.- Listado')
+        aviso=parseInt(aviso)
+        switch(aviso){
+            case 1:
+                do{
+                    alta()
+                    let fin= prompt('Ha terminado de introdir los datos de usuario S-N')
+                    fin.toUpperCase
+            }while(fin!='S')
+        }
+
+
+
+
+        function alta(){
+            nombre=prompt('Introduce nombre de usuario')
+                usuario.push(nombre)
+                pass=prompt('Introduce contraseña de usuario')
+                passwd.push(pass)
+                pregun=prompt('Introduce pregunta de seguridad')
+                pregunta.push(pregun)
+                resp=prompt('Introduce respuesta a la pregunta de seguridad')
+                respuesta.push(resp)
+            }
+
+        function borrar(){
+                usuario.splice()
+                passwd.splice()
+                pregunta.splice()
+                respuesta.splice()
+        }
+        function consulta(){
+
+        }
+        function modificacion(){
+
+        }
+        function listado(){
+            for(let i=0; i<=usuario.length;i++){
+                document.write(usuario+'\n')
+            }
+        }
+    </script>
+</body>
+</html>
