@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="./unindad4.js"></script>
 </head>
 <body>
     motor de busqueda <a href="https://google.es" id="google">Google</a> <br>
@@ -14,6 +15,11 @@
         document.write('numero de enlaces del documento: ',document.links.length,'<br>')
         document.write('Id del segundo enlace del documetno: ', document.links[1].id,'<br>')
         document.write('URL del tercer enlace del documento: ',document.links[2].href)
+    </script>
+    <script>
+        // esta funcion discrimina mayus y minus
+        cadena=prompt('Introduce patron de busqueda')
+        console.log(documentoContiene(document.body,cadena))
     </script>
 </body>
 </html>
