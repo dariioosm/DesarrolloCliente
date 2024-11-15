@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src='./Scripts/jquery-3.7.1.min.js'></script>
+    <p name="nombre" id="lblEjemplo">Ejemplo de pureba</p>
+    <script>
+        
+        let lblEjemplo=document.getElementById(lblEjemplo) 
+        console.log(lblEjemplo)
+        let valor =lblEjemplo.attributes.getNamedItem('id').nodeValue;
+        document.write(valor);
+        lblEjemplo.setAttribute('id','lblEjemplo2')
+        valor= lblEjemplo.attributes.getNamedItem('id').nodeValue;
+        document.write('<br>',valor)
+    </script>
+</body>
+</html>
