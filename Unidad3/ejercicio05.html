@@ -9,8 +9,11 @@
     <script>
         function factoriales(){
             for(let i=1;i<=25;i++){
-                let factorial*=i; 
-                document.write('El factorial de '+i+'es: '+factorial+'<br>' )
+                 let multiplicador =1;
+                 for(let j=1;j<=i;j++){
+                    multiplicador*=j;
+                 }
+                document.write('El factorial de '+i+'es: '+multiplicador+'<br>' )
             }
         }
         factoriales()
