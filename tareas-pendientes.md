@@ -1,11 +1,11 @@
 ### Ejercicios pendientes por hacer en el bloque 2
-[x] Ejercicio12
-[] Ejercicio13
-[] Ejercicio16
-[] Ejercicio17
-[] Ejercicio20 (mirar logica)
-[] Ejercicio22
-[] Ejercicio23
+- [x] Ejercicio12
+- [] Ejercicio13
+- [] Ejercicio16
+- [] Ejercicio17
+- [] Ejercicio20 (mirar logica)
+- [] Ejercicio22
+- [] Ejercicio23
 
 
 ### Ejercicios pendientes por hacer en el bloque 3
