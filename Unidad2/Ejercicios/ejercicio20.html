@@ -20,27 +20,29 @@
        
         do{
             let opcion= prompt('1.Salir \t 2.Sumatorio\t3.Factorial')
-            let numero=prompt('Introduce el numero del que quieras saber el sumatorio')
             switch(opcion){
-                case 2:
+                case '2':
                     let numero=prompt('Introduce el numero del que quieras saber el sumatorio')
-                    parseInt(numero)
-                    for(let i=1;i<=numero;i++){
-                        let resultado=i++
+                    numero = parseInt(numero)
+                    let resultado=0
+                    for(let i=1;i<=numero;i++){  
+                        resultado+=i
                     }
-                    document.write('El sumatorio de '+numero +'es: '+resultado)
-                    break
-                case 3:
+                    alert('El sumatorio de '+numero +'es: '+resultado)
+                    break;
+                case '3':
                 let numero2=prompt('Introduce el numero del que quieras saber el factorial')
-                    parseInt(numero2)
+                    numero2= parseInt(numero2)
+                    let factorial=1;
                     for(let i=1;i<=numero2;i++){
-                        let resultado=i*i
+                            factorial*=i;
+                        }alert('El factorial de '+numero2 +'es: '+factorial)
+                    break;
                     }
-                    document.write('El factorial de '+numero2 +'es: '+resultado)
-                    break
+                  
             }
-        }
-       while(opcion!=0)
+         
+       while(opcion!=='1')
     </script>
 </body>
 </html>
