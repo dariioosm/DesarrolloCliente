@@ -1,5 +1,5 @@
 ### Ejercicios pendientes por hacer en el bloque 2
-[] Ejercicio12
+[x] Ejercicio12
 [] Ejercicio13
 [] Ejercicio16
 [] Ejercicio17
