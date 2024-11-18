@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Realizar un ejercicio que permita realizar la multiplicación de dos números mediante sumas sucesivas.
+        let numero=parseInt(prompt('Introduce el primer numero que quieras dividir'))
+        let divisor=parseInt(prompt('Introduce el cociente'))
+        let resultado=0;
+        while (numero >= divisor) {
+        numero -= divisor; // Restamos el divisor del número
+        resultado++; // Contamos cuántas veces podemos restar
+    }
+        alert('El cociente es: ' + resultado + ' y el resto es: ' + numero)
+    </script>
+</body>
+</html>

@@ -8,9 +8,9 @@
 <body>
     <script>
         let r=parseInt(prompt('Introduce el radio de la esfera para calcular su volumen y area'))
-        let vol=(4*Math.PI*(r^3))/3
-        let ar=4*Math.PI*(r^2)
-        alert('El area de la esfera con radio: '+r+'es: '+ar+' y, el volumen de la esfera es: '+vol)
+        let vol=(4*Math.PI*Math.pow(r,3))/3
+        let ar=4*Math.PI*Math.pow(r,2)
+        alert('El area de la esfera con radio: '+r+'es: '+ar.toFixed(3)+' y, el volumen de la esfera es: '+vol.toFixed(3))
     </script>
 </body>
 </html>
