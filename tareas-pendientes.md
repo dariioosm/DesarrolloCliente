@@ -5,6 +5,9 @@
 - [x] Ejercicio20 (mirar logica)
 - [] Ejercicio22
 - [x] Ejercicio23
+- [] Ejercicio27
+- [] Ejercicio28
+- [] Ejercicio30 (Mastermind)
 
 
 ### Ejercicios pendientes por hacer en el bloque 3
