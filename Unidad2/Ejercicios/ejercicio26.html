@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Leer tres numeros y escribirlos decrecientemente
+        let numero=[]
+        for(let i=0; i<3;i++){
+            numero[i]=parseInt(prompt('introduce un numero'),4)
+        }
+        numero.sort((a,b)=>b-a)
+        document.write(numero)
+    </script>
+</body>
+</html>
