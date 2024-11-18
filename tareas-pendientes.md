@@ -8,6 +8,8 @@
 - [] Ejercicio27
 - [] Ejercicio28
 - [] Ejercicio30 (Mastermind)
+- [] Ejercicio 37
+- [] Ejercicio 38
 
 
 ### Ejercicios pendientes por hacer en el bloque 3
