@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Crea un Array con 3 “pizzas” introducidas mediante código. 
+        Posteriormente añade otras dos nuevas pizzas al Array y muestra por pantalla el número total de pizzas almacenadas y cuáles son.
+        */
+       let pizzas= ['Margarita','Diavola','Prosciutto']
+       document.write('Hay '+pizzas.length+' pizzas: ')
+       for(let i=0; i<pizzas.length;i++){
+            document.write(pizzas[i],' ')
+       }
+
+       let nuevas = prompt('Introduce el nombre de la pizza que quieras añadir')
+       pizzas.map(nuevas)
+       
+       document.write('Ahora hay '+pizzas.length+' pizzas: ')
+       for(let i=0; i<pizzas.length;i++){
+            document.write(pizzas[i],' ')
+       }
+    </script>
+</body>
+</html>
