@@ -20,3 +20,10 @@
 - [] Ejercicio13
 - [] Ejercicio14
 - [] Ejercicio16
+- [] Ejercicio17
+- [] Ejercicio18
+- [] Ejercicio20
+- [] Ejercicio21
+- [] Ejercicio24
+- [] Ejercicio27
+- [] 

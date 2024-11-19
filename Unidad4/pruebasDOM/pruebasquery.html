@@ -26,7 +26,21 @@
             let elemento=$(this);
             console.log(this)
         })
-
+    </script>
+    <form action="">
+        <label for="txtEntrada" id="lblEntrada">Introduce tu texto aqui</label> <br><br>
+        <input type="text" id="txtEntrada"/><br><br>
+        <input type="button" value="Click"/>
+        <label id="lblError"></label>
+    </form>
+    <script>
+        let etiqueta=document.getElementById('lblEntrada')
+        etiqueta.classList.add('blue')
+        document.getElementById("txtEntrada").value = "";
+    </script>
+    <script>
+        $('#lblEntrada').addClass('purple')
+        //$('#lblEntrada').removeClass('blue')
     </script>
 </body>
 </html>
