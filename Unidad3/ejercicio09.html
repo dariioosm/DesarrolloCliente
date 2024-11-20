@@ -8,7 +8,22 @@
 <body>
     <script>
         /* Hacer un programa que mediante una función permita introducir un número y haga depuración de datos de entrada. */
-        
+        function depuracion(){
+            let numero
+            !isNaN(numero)
+            do{
+                numero=prompt('Introduce un numero')
+                if(isNaN(numero)||numero==''){
+                    alert('Sólo se pueden introducir caracteres numericos')
+                    continue
+                }
+                numero=parseInt(numero)
+                numero<0?alert('Tienes que introducir un numero positivo'):alert('Has introducido un numero correctamente: '+numero)
+                break
+
+            }while(true)
+        }
+        depuracion()
     </script>
 </body>
 </html>
