@@ -15,7 +15,7 @@
 ### Ejercicios pendientes por hacer en el bloque 3
 - [x] Ejercicio07
 - [x] Ejercicio08
-- [] Ejercicio09
+- [x] Ejercicio09
 - [] Ejercicio10
 - [] Ejercicio13
 - [] Ejercicio14
