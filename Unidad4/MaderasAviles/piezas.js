@@ -1,5 +1,6 @@
-
-class pieza{
+//? llamar a pedido para obtener el id del pedido en el que se ecuentra la pieza
+import Pedido from './pedidos.js'
+class Piezas{
 
     //TODO creacion de getter y setter del objeto
     set largo(largo){
@@ -58,4 +59,25 @@ class pieza{
         this._cortado=cortado
     }
 }
+    //TODO realizar metodos crud para los objetos pieza
+    let piezas=[]
 
+    function annadir_pieza(numero_pieza,largo,ancho,grosor,color,chapeado,cortado){
+        const nueva_pieza={
+            identificador:numero_pieza,
+            largo:largo,
+            ancho:ancho,
+            grosor:grosor,
+            is_chapeado:chapeado,
+            is_cortado:cortado
+        };
+        piezas.push(nueva_pieza)
+    }
+    
+    function borrar_pieza(){
+        
+    }
+
+    function mod_pieza(){
+        prompt('Introduzca numero de pieza que desee modificar')
+    }
