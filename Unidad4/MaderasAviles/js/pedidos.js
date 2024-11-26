@@ -38,12 +38,12 @@ function fechaActual() {
 }
 
 //TODO funcion para hacer autoincremental del nº de pedido
-let cont = 0;
+const cont = 0;
 function autoincremental() {
-  cont++;
+  Pedido.cont++; //? y si no poner Pedido.cont = cont++
   return cont;
 }
-let inventario = [];
+const inventario = [];
 function annadir_pedido(cliente, procesado=false, servido=false) {
   const nuevo_pedido = {
     id: autoincremental(),
@@ -55,12 +55,32 @@ function annadir_pedido(cliente, procesado=false, servido=false) {
   inventario.push(nuevo_pedido);
 }
 
-function borrar_pedido(){
-    const indice=inventario.findIndex()
-    let consulta_id=0;
-    if(consulta_id==autoincremental()){
-        inventario.pop(inventario.indexOf(consulta_id))
+function borrar_pedido(consulta_id){ //? el consulta_id es la etiqueta del formulario
+    const indice=inventario.findIndex(pedido=>pedido.id===consulta_id)
+    if(indice!= -1){
+        inventario.pop(indice)
     }else{
         alert('Este id es inexistente')
     }
 }
+
+function update_pedido(){
+  const indice=inventario.findIndex
+}
+
+//TODO recoger los datos del formulario de pedidos
+const formulario = document.getElementById('pedido');
+formulario.addEventListener('submit', function(event) { 
+    event.preventDefault();
+
+    const nombre = document.getElementById('cliente').value.trim;
+    const fecha = document.getElementById('fecha').value;
+    const is_procesado = document.getElementById('procesado').checked;
+    const is_servido = document.getElementById('servido').checked;
+    annadir_pedido(cliente,procesado,servido)
+    if(!cliente){
+      alert('El campo de cliente es obligatorio')
+    }
+    alert('Pedido agregado correctamente')
+    console.log(nombre.value, fecha.value, is_procesado.checked, is_servido.checked);
+});

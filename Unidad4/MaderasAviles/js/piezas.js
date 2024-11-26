@@ -68,6 +68,7 @@ class Piezas{
             largo:largo,
             ancho:ancho,
             grosor:grosor,
+            color:color,
             is_chapeado:chapeado,
             is_cortado:cortado
         };
