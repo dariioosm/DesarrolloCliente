@@ -1,3 +1,4 @@
+let piezas=JSON.parse(localStorage.getItem('piezas'))||[]
 //? llamar a pedido para obtener el id del pedido en el que se ecuentra la pieza
 import Pedido from './pedidos.js'
 class Piezas{
@@ -81,7 +82,7 @@ class Piezas{
     }
 }
     //TODO realizar metodos crud para los objetos pieza
-    let piezas=JSON.parse(localStorage.getItem('piezas'))||[]
+    
 
     function annadir_pieza(nueva_pieza){
         const {numero_pieza,numero_pedido,largo,ancho,grosor,color,chapeado,cortado}=nueva_pieza
@@ -109,15 +110,41 @@ class Piezas{
         piezas.push(nueva_pieza)
         localStorage('piezas',JSON.stringify(piezas))
         console.log('Pieza añadida correctamente')
-        
+
     }
     
-    function borrar_pieza(){
-        if(piezas.indexOf(nueva_pieza)){
-
+    function borrar_pieza(numero_pieza){
+        const indice=piezas.findIndex( p=>  p.numero_pieza=== numero_pieza)
+        if(indice=== -1){
+            throw new error('Esta pieza no se encuentra en el pedido')
         }
+        piezas.splice(indice,1)
+        localStorage.setItem('piezas',JSON.stringify(piezas))
     }
 
-    function mod_pieza(){
-        prompt('Introduzca numero de pieza que desee modificar')
+    function mod_pieza(nueva_pieza,mod_valor){
+        const indice=piezas.findIndex(p=> p.numero_pieza===numero_pieza)
+        if(indice===-1){
+            throw new error('Esta pieza no se encuentra en el pedido')
+        }
+        const pieza= piezas[indice]
+        if(mod_valor.largo>0){
+            pieza.largo=mod_valor.largo
+        }
+        if(mod_valor.ancho>0){
+            pieza.ancho=mod_pieza.ancho
+        }
+        if(mod_pieza.grosor>0){
+            pieza.grosor=mod_valor.grosor
+        }if (typeof mod_valor.color === 'string' && mod_valor.color.length > 0) {
+            pieza.color = mod_valor.color;
+        }
+        if (typeof mod_valor.chapeado === 'boolean') {
+            pieza.chapeado = mod_valor.chapeado;
+        }
+        if (typeof mod_valor.cortado === 'boolean') {
+            pieza.cortado = mod_pieza.cortado;
+        }   
+        localStorage.setItem('piezas',JSON.stringify(piezas))
+
     }
