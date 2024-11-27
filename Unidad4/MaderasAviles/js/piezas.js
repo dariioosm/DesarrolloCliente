@@ -1,4 +1,5 @@
 let piezas=JSON.parse(localStorage.getItem('piezas'))||[]
+//import Pedido 
 //? llamar a pedido para obtener el id del pedido en el que se ecuentra la pieza
 import Pedido from './pedidos.js'
 class Piezas{
@@ -128,23 +129,18 @@ class Piezas{
             throw new error('Esta pieza no se encuentra en el pedido')
         }
         const pieza= piezas[indice]
-        if(mod_valor.largo>0){
-            pieza.largo=mod_valor.largo
-        }
-        if(mod_valor.ancho>0){
-            pieza.ancho=mod_pieza.ancho
-        }
-        if(mod_pieza.grosor>0){
-            pieza.grosor=mod_valor.grosor
-        }if (typeof mod_valor.color === 'string' && mod_valor.color.length > 0) {
+        if (mod_valor.largo > 0) pieza.largo = mod_valor.largo;
+        if (mod_valor.ancho > 0) pieza.ancho = mod_valor.ancho;
+        if (mod_valor.grosor > 0) pieza.grosor = mod_valor.grosor;
+        if (typeof mod_valor.color === 'string' && mod_valor.color.length > 0) {
             pieza.color = mod_valor.color;
-        }
+             }
         if (typeof mod_valor.chapeado === 'boolean') {
             pieza.chapeado = mod_valor.chapeado;
-        }
+            } 
         if (typeof mod_valor.cortado === 'boolean') {
-            pieza.cortado = mod_pieza.cortado;
-        }   
+            pieza.cortado = mod_valor.cortado;
+            } 
         localStorage.setItem('piezas',JSON.stringify(piezas))
 
     }
@@ -154,5 +150,6 @@ class Piezas{
             console.error('Numero de pieza no encontrado')
             return null
         }
+        console.log('Pieza encontrada',pieza)
         return pieza
     }
