@@ -148,3 +148,11 @@ class Piezas{
         localStorage.setItem('piezas',JSON.stringify(piezas))
 
     }
+    function lee_pieza(numero_pieza){
+        const pieza=piezas.find(p=> p.nueva_pieza===numero_pieza)
+        if(!pieza){
+            console.error('Numero de pieza no encontrado')
+            return null
+        }
+        return pieza
+    }
