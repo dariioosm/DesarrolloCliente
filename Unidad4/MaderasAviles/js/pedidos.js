@@ -42,10 +42,10 @@ class Pedido {
   }
   //TODO funcion para coger la fecha actual del sistema
   static fechaActual(){
-    const hoy = new Date();
+  const hoy = new Date();
   const anno = String(hoy.getFullYear());
   const mes = String(hoy.getMonth() + 1).padStart(2, "0");
-  const dia = String(hoy.getDay()).padStart(2, "0");
+  const dia = String(hoy.getDate()).padStart(2, "0");
   return [dia, mes, anno].join("-");
   }
 }
@@ -53,23 +53,19 @@ class Pedido {
 
 
 //TODO funcion para hacer autoincremental del nº de pedido
-const cont = 0;
-function autoincremental() {
-  Pedido.cont++; //? y si no poner Pedido.cont = cont++
-  return cont;
-}
+
 function annadir_pedido(nuevo_pedido){
-  const{numero_pedido,cliente,procesado,servido}=nuevo_pedido
-  if(!Number.isInteger(numero_pedido)||numero_pedido<1){
+  const{_numero_pedido,_cliente,_procesado,_servido}=nuevo_pedido
+  if(!Number.isInteger(_numero_pedido)||_numero_pedido<1){
     console.error('El id del pedido debe ser mayor que cero')
     return false
-  }if(pedidos.some(pedidos=>pedidos.numero_pedido===numero_pedido)){
+  }if(pedidos.some(pedidos=>pedidos._numero_pedido===_numero_pedido)){
     console.error('Este id de pedido ya existe')
-  }if(typeof cliente !=='string'||cliente.length===0||cliente.length>50){
+  }if(typeof cliente !=='string'||_cliente.length===0||_cliente.length>50){
     console.error('El cliente debe ser una cadena de caracteres entre 1 y 50')
-  }if(typeof procesado !== 'boolean'){
+  }if(typeof _procesado !== 'boolean'){
     console.error('Procesado debe ser boleano')
-  }if(typeof enviado !== 'boleano'){
+  }if(typeof _enviado !== 'boleano'){
     console.error('Enviado debe ser un boleano')
   }
   pedidos.push(nuevo_pedido)
@@ -77,8 +73,8 @@ function annadir_pedido(nuevo_pedido){
   console.log('pedido añadido correctamente')
 }
 
-function borrar_pedido(numero_pedido){ //? el consulta_id es la etiqueta del formulario
-    const indice=inventario.findIndex(pedido=>pedido.id===numero_pedido)
+function borrar_pedido(_numero_pedido){ //? el consulta_id es la etiqueta del formulario
+    const indice=inventario.findIndex(pedido=>pedido._numero_pedido===_numero_pedido)
     if(indice!== -1){
         pedidos.splice(indice,1)
         localStorage.setItem('pedidos',JSON.stringify(pedidos))
@@ -88,7 +84,7 @@ function borrar_pedido(numero_pedido){ //? el consulta_id es la etiqueta del for
 }
 
 function update_pedido(nuevo_pedido,mod_valor){
-  const indice=pedidos.findIndex(pedido=> pedido.id===numero_pedido)
+  const indice=pedidos.findIndex(pedido=> pedido._numero_pedido===numero_pedido)
   if(indice===-1){
     throw new error('Este pedido no se encuentra en el inventario')
   }
