@@ -1,7 +1,6 @@
 let piezas=JSON.parse(localStorage.getItem('piezas'))||[]
-//import Pedido 
-//? llamar a pedido para obtener el id del pedido en el que se ecuentra la pieza
-import Pedido from './pedidos.js'
+const Pedido = require('./pedidos.js')
+
 class Piezas{
 
     //TODO creacion de getter y setter del objeto
