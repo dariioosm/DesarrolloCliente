@@ -46,9 +46,8 @@ class Piezas{
     get cortado(){
         return this._cortado
     }
+
     //TODO creacion del constructor de la pieza
-    //?isnan en la toma de datos
-    //?si uso typeof se lanzan excepciones
     
     constructor(numero_pieza,numero_pedido,largo,ancho,grosor,color,chapeado,cortado){
         if(!Number.isInteger(numero_pieza||numero_pieza<1)){
@@ -66,6 +65,7 @@ class Piezas{
             throw new error('El valor debe ser un boleano')
         }
         this.numero_pieza=numero_pieza
+        this.numero_pedido = numero_pedido
         this._largo=largo
         this._ancho=ancho
         this._grosor=grosor
@@ -103,7 +103,10 @@ class Piezas{
         }if(typeof ambas_caras!==Boolean){
             console.error('El valor debe ser un boleano')
             return false
-        }if(typeof cortada!==Boolean){
+        }if(typeof chapeado !== Boolean){
+            console.error('Chapeado debe ser boleano')
+            return falseeeeeeeee
+        }if(typeof cortado!==Boolean){
             console.error('El valor debe ser un boleano')
             return false
         }

@@ -32,6 +32,9 @@ class Pedido {
     return this._servido;
   }
 
+  get numeroPedido(){
+    return this._numero_pedido
+  }
   constructor(cliente, procesado = false, servido = false) {
     this._numero_pedido=++Pedido.autoincremental
     this._cliente = cliente;
