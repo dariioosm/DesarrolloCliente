@@ -1,41 +1,13 @@
 let pedidos=JSON.parse(localStorage.getItem('pedidos'))||[]
 class Pedido {
-  //TODO getter y setter de los atributos del pedido
-  static autoincremental=JSON.parse(localStorage.getItem('autoincremental'))||0
-  set cliente(cliente) {
-    if(typeof cliente !=='string'||cliente.length==0||cliente.length>50){
-      throw new Error('Los datos del cliente deben tener entre 1 y 50 caracteres')
+  constructor(numero_pedido,cliente, procesado = false, servido = false) {
+    if(!Number.isInteger(numero_pedido)|| numero_pedido<1){
+      throw new Error('El numero del pedido tiene que ser un numero entero (1 o mayor)')
+    }if(typeof cliente !== String || cliente.length===0){
+      throw new Error('El cliente tiene que ser un string y no estar vacio')
+    }if(typeof procesado !==Boolean || typeof servido !==Boolean){
+      throw new Error('El pedido tiene que ser un boolean')
     }
-    this._cliente = cliente;
-  }
-  get cliente() {
-    return this._cliente;
-  }
-
-  set procesado(procesado) {
-    if(typeof procesado !=='boolean'){
-      throw new Error('El valor de procesado tiene que ser un boleano')
-    }
-    this._procesado =procesado;
-  }
-  get procesado() {
-    return this._procesado;
-  }
-
-  set servido(servido) {
-    if(typeof servido !=='boolean'){
-      throw new Error('El valor de servido tiene que ser un boleano')
-    }
-    this._servido = servido;
-  }
-  get servido() {
-    return this._servido;
-  }
-
-  get numeroPedido(){
-    return this._numero_pedido
-  }
-  constructor(cliente, procesado = false, servido = false) {
     this._numero_pedido=++Pedido.autoincremental
     this._cliente = cliente;
     this._procesado = procesado;

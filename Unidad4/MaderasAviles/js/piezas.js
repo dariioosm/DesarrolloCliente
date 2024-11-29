@@ -117,7 +117,7 @@ class Piezas{
     }
     
     function borrar_pieza(numero_pieza){
-        const indice=piezas.findIndex( p=>  p.numero_pieza=== numero_pieza)
+        const indice=piezas.findIndex( Piezas=>  Piezas.numero_pieza=== numero_pieza)
         if(indice=== -1){
             throw new error('Esta pieza no se encuentra en el pedido')
         }
@@ -126,7 +126,7 @@ class Piezas{
     }
 
     function mod_pieza(nueva_pieza,mod_valor){
-        const indice=piezas.findIndex(p=> p.numero_pieza===numero_pieza)
+        const indice=piezas.findIndex(Piezas=> Piezas.numero_pieza===numero_pieza)
         if(indice===-1){
             throw new error('Esta pieza no se encuentra en el pedido')
         }
@@ -147,9 +147,9 @@ class Piezas{
 
     }
     function lee_pieza(numero_pieza){
-        const pieza=piezas.find(p=> p.nueva_pieza===numero_pieza)
+        const pieza=piezas.find(Piezas=> Piezas.nueva_pieza===numero_pieza)
         if(!pieza){
-            console.error('Numero de pieza no encontrado')
+            console.error('Numero de pieza ${numero_pieza} no encontrado')
             return null
         }
         console.log('Pieza encontrada',pieza)
