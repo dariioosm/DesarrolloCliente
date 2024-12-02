@@ -1,54 +1,9 @@
 let piezas=JSON.parse(localStorage.getItem('piezas'))||[]
-const Pedido = require('./pedidos.js')
+const Pedido = import('pedidos.js')
 
 class Piezas{
 
-    //TODO creacion de getter y setter del objeto
-    set largo(largo){
-        this._largo=largo
-    }
-
-    get largo(){
-        return this._largo
-    }
-
-    set ancho(ancho){
-        this._ancho=ancho
-    }
-    get ancho(){
-        return this._ancho
-    }
-
-    set grosor(grosor){
-        this._grosor=grosor
-    }
-    get grosor(){
-        return this._ancho
-    }
-
-    set color(color){
-        this._color=color
-    }
-    get color(){
-        return this._color
-    }
-
-    set chapeado(chapeado){
-        this._chapeado=chapeado
-    }
-    get chapeado(){
-        return this._chapeado
-    }
-
-    set cortado(cortado){
-        this._cortado=cortado
-    }
-    get cortado(){
-        return this._cortado
-    }
-
     //TODO creacion del constructor de la pieza
-    
     constructor(numero_pieza,numero_pedido,largo,ancho,grosor,color,chapeado,cortado){
         if(!Number.isInteger(numero_pieza||numero_pieza<1)){
             throw new error('El numero de pieza debe ser mayor que 0')
@@ -105,7 +60,7 @@ class Piezas{
             return false
         }if(typeof chapeado !== Boolean){
             console.error('Chapeado debe ser boleano')
-            return falseeeeeeeee
+            return false
         }if(typeof cortado!==Boolean){
             console.error('El valor debe ser un boleano')
             return false
@@ -155,3 +110,5 @@ class Piezas{
         console.log('Pieza encontrada',pieza)
         return pieza
     }
+
+    export{annadir_pieza,borrar_pieza,mod_pieza,lee_pieza}

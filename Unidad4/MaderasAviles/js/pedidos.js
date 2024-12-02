@@ -1,5 +1,5 @@
 let pedidos=JSON.parse(localStorage.getItem('pedidos'))||[]
-class Pedido {
+ export class Pedido {
   constructor(numero_pedido,cliente, procesado = false, servido = false) {
     if(!Number.isInteger(numero_pedido)|| numero_pedido<1){
       throw new Error('El numero del pedido tiene que ser un numero entero (1 o mayor)')

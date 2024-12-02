@@ -7,7 +7,36 @@
 </head>
 <body>
     <form id="form_annadir_pieza">
-        
+
+        <label for="numero_pieza">Numero de pieza</label>
+        <input type="number" name="numero_pieza" id="numero_pieza" required> <br>
+        <label for="numero_pedido">Numero de pedido</label>
+        <input type="number" name="numero_pedido" id="numero_pedido" required><br>
+        <label for="largo">Largo</label>
+        <input type="number" name="largo" id="largo" min="0.01"required><br>
+        <label for="ancho">Ancho</label>
+        <input type="number" name="ancho" id="ancho" min="0.01"required><br>
+        <label for="grosor">Grosor</label>
+        <input type="number" name="grosor" id="grosor" min="0.01"required><br>
+        <label for="color">Color</label>
+        <select name="color" id="color" required>
+            <option value="natural">Natural</option>
+            <option value="amarillo">Amarillo</option>
+            <option value="azul">Azul</option>
+            <option value="blanco">Blanco</option>
+            <option value="negro">Negro</option>
+            <option value="rojo">Rojo</option>
+            <option value="rosa">Rosa</option>
+            <option value="verde">Verde</option>
+        </select>
+        <br>
+        <label for="chapeado">Chapeado</label>
+        <input type="checkbox" name="chapeado" id="chapeado">
+        <label for="cortado">Cortado</label>
+        <input type="checkbox" name="cortado" id="cortado"><br><br>
+        <button type="submit">Agregar Pieza al Pedido</button>
     </form>
+    <script type="module" src="../../js/piezas.js"></script>
+    <script type="module" src="../../js/piezasDOM.js"></script>
 </body>
 </html>
