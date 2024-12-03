@@ -1,23 +1,20 @@
 let piezas=JSON.parse(localStorage.getItem('piezas'))||[]
-const Pedido = import('pedidos.js')
-
 class Piezas{
 
     //TODO creacion del constructor de la pieza
     constructor(numero_pieza,numero_pedido,largo,ancho,grosor,color,chapeado,cortado){
-        if(!Number.isInteger(numero_pieza||numero_pieza<1)){
-            throw new error('El numero de pieza debe ser mayor que 0')
-        }
-        if(!Number.isInteger(numero_pedido)||numero_pedido<1){
-            throw new error('El numero de pedido debe ser mayor que 0')
+        if(!Number.isInteger(numero_pieza)||numero_pieza<1){
+            throw new Error('El numero de pieza debe ser mayor que 0')
+        }if(!Number.isInteger(numero_pedido)||numero_pedido<1){
+            throw new Error('El numero de pedido debe ser mayor que 0')
         }if(largo<=0||ancho<=0||grosor<=0){
-            throw new error('Largo ancho y grosor deben ser mayores que 0')
+            throw new Error('Largo ancho y grosor deben ser mayores que 0')
         }if(typeof color!=='string'||color.length===0){
-            throw new error('El color debe ser una cadena de caracteres')
+            throw new Error('El color debe ser una cadena de caracteres')
         }if(typeof ambas_caras!==Boolean){
-            throw new error('El valor debe ser un boleano')
+            throw new Error('El valor debe ser un boleano')
         }if(typeof cortada!==Boolean){
-            throw new error('El valor debe ser un boleano')
+            throw new Error('El valor debe ser un boleano')
         }
         this.numero_pieza=numero_pieza
         this.numero_pedido = numero_pedido
@@ -27,6 +24,7 @@ class Piezas{
         this._color=color
         this._chapeado=chapeado
         this._cortado=cortado
+        console.log(numero_pieza)
     }
     //TODO calcular superficies y volumenes
     calculaSuperficie(){

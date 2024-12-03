@@ -38,7 +38,17 @@
         <button type="submit">Agregar Pieza al Pedido</button>
     </form>
     <script>
-        annadir_pieza()
+        const form = document.getElementById('form_annadir_pieza')
+        const numero_pieza= parseInt(form.numero_pieza.value)
+        const numero_pedido= parseInt(form.numero_pedido.value)
+        const largo= parseFloat(form.largo.value)
+        const ancho= parseFloat(form.ancho.value)
+        const grosor= parseFloat(form.grosor.value)
+        const color= form.color.value
+        const chapeado= form.chapeado===true
+        const cortado= form.cortado===true
+        const nuevaPieza= new Piezas(numero_pieza, numero_pedido, largo, ancho, grosor, color, chapeado, cortado)
+        annadir_pieza(nuevaPieza)
     </script>
     
 </body>
