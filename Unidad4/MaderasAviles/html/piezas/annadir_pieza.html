@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="../../js/piezas.js"></script>
 </head>
 <body>
     <form id="form_annadir_pieza">
@@ -13,11 +14,11 @@
         <label for="numero_pedido">Numero de pedido</label>
         <input type="number" name="numero_pedido" id="numero_pedido" required><br>
         <label for="largo">Largo</label>
-        <input type="number" name="largo" id="largo" min="0.01"required><br>
+        <input type="number" name="largo" id="largo" min="0.01" step="0.01" required><br>
         <label for="ancho">Ancho</label>
-        <input type="number" name="ancho" id="ancho" min="0.01"required><br>
+        <input type="number" name="ancho" id="ancho" min="0.01" step="0.01"><br>
         <label for="grosor">Grosor</label>
-        <input type="number" name="grosor" id="grosor" min="0.01"required><br>
+        <input type="number" name="grosor" id="grosor" min="0.01" step="0.01" required><br>
         <label for="color">Color</label>
         <select name="color" id="color" required>
             <option value="natural">Natural</option>
@@ -36,7 +37,9 @@
         <input type="checkbox" name="cortado" id="cortado"><br><br>
         <button type="submit">Agregar Pieza al Pedido</button>
     </form>
-    <script type="module" src="../../js/piezas.js"></script>
-    <script type="module" src="../../js/piezasDOM.js"></script>
+    <script>
+        annadir_pieza()
+    </script>
+    
 </body>
 </html>

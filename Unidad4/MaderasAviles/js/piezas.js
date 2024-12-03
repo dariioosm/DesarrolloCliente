@@ -110,5 +110,3 @@ class Piezas{
         console.log('Pieza encontrada',pieza)
         return pieza
     }
-
-    export{annadir_pieza,borrar_pieza,mod_pieza,lee_pieza}
