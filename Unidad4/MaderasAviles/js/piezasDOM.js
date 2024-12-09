@@ -1,4 +1,5 @@
-import { annadir_pieza, Piezas } from './piezas.js';
+//import { annadir_pieza, Piezas } from './piezas.js';
+
 document.getElementById('form_annadir_pieza').addEventListener('submit', function(escucha) {
     escucha.preventDefault();
     const nueva_pieza = {
