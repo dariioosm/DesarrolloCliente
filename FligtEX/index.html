@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Vuelos</h1>
+    <h3>Añadir vuelo</h3>
+    <form action="" id="formAnnadir">
+        <label for="codigo">Codigo:</label> <input type="number" id="codigo" required>
+        <label for="numPlazas"> Nº de plazas</label> <input type="number" name="numPlazas" id="numPlazas" step="0.01">
+        <label for="precioBillete">Importe</label> <input type="number" name="precioBillete" id="precioBillete" step="0.01">
+        <button type="submit">Añadir</button>
+        <button type="submit">Modificar</button>
+        <button type="submit">Calcular</button>
+    </form>
+    <h3>Modificar vuelo</h3>
+    <form action="" id="formModificar">
+        <label for="modCodigo">Codigo</label> <input type="number" name="modCodigo" id="modCodigo">
+        <label for="modNumPlazas">Nº de plazas</label> <input type="number" name="modNumPlazas" id="modNumPlazas">
+        <label for="modPrecioBillete">Importe</label> <input type="number" name="modPrecioBillete" id="modPrecioBillete" step="0.01">
+        <button type="submit">Modificar</button>
+        <button id="calcular">Calcular</button>
+    </form>
+    <table id="tablaVuelos">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nº de plazas</th>
+                <th>Importe</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <table id="vuelosMuyRentables">
+        <thead></thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nº de plazas</th>
+                <th>Importe</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script type="module" src="./calculos.js"></script>
+</body>
+</html>
