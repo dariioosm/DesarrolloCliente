@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Pedidos</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #3c3c3c;
+        }
+
+        header {
+            background-color: #8B5E3C;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .section {
+            margin: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        button {
+            background-color: #8B5E3C;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #70432f;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        .section input[type="number"],
+        .section input[type="date"],
+        .section input[type="text"],
+        .section select {
+            width: 100%;
+            padding: 8px;
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            background-color: #3c8d1f;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .button-container button:hover {
+            background-color: #3a7e1b;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .section .form-group {
+            margin-bottom: 15px;
+        }
+
+        .section .form-group label {
+            font-size: 1.1rem;
+        }
+
+        .section .form-group input,
+        .section .form-group select {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gestión de Pedidos</h1>
+
+    <!-- Botones para acciones -->
+    <button onclick="mostrarSeccion('agregar')">Agregar Pedido</button>
+    <button onclick="mostrarSeccion('listar')">Listar Pedidos</button>
+    <button onclick="mostrarSeccion('consultar')">Consultar Pedido</button>
+    <button onclick="mostrarSeccion('modificar')">Modificar Pedido</button>
+    <button onclick="mostrarSeccion('eliminar')">Eliminar Pedido</button>
+
+    <!-- Sección de agregar pedido -->
+    <div id="agregar" class="section" style="display: none;">
+        <h2>Agregar Pedido</h2>
+        <form id="formAgregarPedido">
+            <label for="numeroPedido">Número de Pedido:</label>
+            <input type="number" id="numeroPedido" min="1" required><br>
+
+            <label for="cliente">Cliente:</label>
+            <input type="text" id="cliente" maxlength="50" required><br>
+
+            <label for="fechaPedido">Fecha de Pedido:</label>
+            <input type="date" id="fechaPedido" required><br>
+
+            <label for="procesado">Procesado:</label>
+            <input type="checkbox" id="procesado"><br>
+
+            <label for="servido">Servido:</label>
+            <input type="checkbox" id="servido"><br>
+
+            <button type="submit">Agregar</button>
+        </form>
+    </div>
+
+    <!-- Sección de listar pedidos -->
+    <div id="listar" class="section" style="display: none;">
+        <h2>Listar Pedidos</h2>
+        <button onclick="listarPedidos()">Mostrar Pedidos</button>
+        <pre id="resultadoListar"></pre>
+    </div>
+
+    <!-- Sección de consultar pedido -->
+    <div id="consultar" class="section" style="display: none;">
+        <h2>Consultar Pedido</h2>
+        <label for="numeroPedidoConsulta">Número de Pedido:</label>
+        <input type="number" id="numeroPedidoConsulta" min="1">
+        <button onclick="consultarPedidoHandler()">Consultar</button>
+        <pre id="resultadoConsultar"></pre>
+    </div>
+
+    <!-- Sección de modificar pedido -->
+    <div id="modificar" class="section" style="display: none;">
+        <h2>Modificar Pedido</h2>
+        <label for="numeroPedidoModificar">Número de Pedido:</label>
+        <input type="number" id="numeroPedidoModificar" min="1" required><br>
+
+        <label for="nuevoCliente">Nuevo Cliente:</label>
+        <input type="text" id="nuevoCliente"><br>
+
+        <label for="nuevaFechaPedido">Nueva Fecha de Pedido:</label>
+        <input type="date" id="nuevaFechaPedido"><br>
+
+        <label for="nuevoProcesado">Procesado:</label>
+        <input type="checkbox" id="nuevoProcesado"><br>
+
+        <label for="nuevoServido">Servido:</label>
+        <input type="checkbox" id="nuevoServido"><br>
+
+        <button onclick="modificarPedidoHandler()">Modificar</button>
+        <pre id="resultadoModificar"></pre>
+    </div>
+
+    <!-- Sección de eliminar pedido -->
+    <div id="eliminar" class="section" style="display: none;">
+        <h2>Eliminar Pedido</h2>
+        <label for="numeroPedidoEliminar">Número de Pedido:</label>
+        <input type="number" id="numeroPedidoEliminar" min="1">
+        <button onclick="eliminarPedidoHandler()">Eliminar</button>
+        <pre id="resultadoEliminar"></pre>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/pedidos.js"></script>
+    <script>
+        function mostrarSeccion(seccion) {
+            document.querySelectorAll('.section').forEach(div => div.style.display = 'none');
+            document.getElementById(seccion).style.display = 'block';
+        }
+
+        // Manejo de agregar pedido
+        document.getElementById('formAgregarPedido').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const numeroPedido = parseInt(document.getElementById("numeroPedido").value, 10);
+            const cliente = document.getElementById("cliente").value;
+            const fechaPedido = document.getElementById("fechaPedido").value;
+            const procesado = document.getElementById("procesado").checked;
+            const servido = document.getElementById("servido").checked;
+            try {
+                const nuevoPedido = new Pedido(numeroPedido, cliente, fechaPedido, procesado, servido);
+                agregarPedido(nuevoPedido);
+                alert(`Pedido ${numeroPedido} agregado exitosamente.`);
+                this.reset();
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+        });
+
+        // Listar todos los pedidos
+        function listarPedidos() {
+            const resultado = document.getElementById("resultadoListar");
+            if (pedidos.length === 0) {
+                resultado.textContent = "No hay pedidos registrados.";
+            } else {
+                resultado.textContent = JSON.stringify(pedidos, null, 2);
+            }
+        }
+
+        // Consultar pedido
+        function consultarPedidoHandler() {
+            const numeroPedido = parseInt(document.getElementById("numeroPedidoConsulta").value, 10);
+            const resultado = document.getElementById("resultadoConsultar");
+            try {
+                const pedido = consultarPedido(numeroPedido);
+                resultado.textContent = JSON.stringify(pedido, null, 2);
+            } catch (error) {
+                resultado.textContent = `Error: ${error.message}`;
+            }
+        }
+
+        // Modificar pedido
+        function modificarPedidoHandler() {
+            const numeroPedido = parseInt(document.getElementById("numeroPedidoModificar").value, 10);
+            const nuevoCliente = document.getElementById("nuevoCliente").value;
+            const nuevaFechaPedido = document.getElementById("nuevaFechaPedido").value;
+            const nuevoProcesado = document.getElementById("nuevoProcesado").checked;
+            const nuevoServido = document.getElementById("nuevoServido").checked;
+            try {
+                modificarPedido(numeroPedido, { cliente: nuevoCliente, fechaPedido: nuevaFechaPedido, procesado: nuevoProcesado, servido: nuevoServido });
+                alert(`Pedido ${numeroPedido} modificado exitosamente.`);
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+        }
+
+        // Eliminar pedido
+        function eliminarPedidoHandler() {
+            const numeroPedido = parseInt(document.getElementById("numeroPedidoEliminar").value, 10);
+            const resultado = document.getElementById("resultadoEliminar");
+            try {
+                eliminarPedido(numeroPedido);
+                resultado.textContent = `Pedido ${numeroPedido} eliminado exitosamente.`;
+            } catch (error) {
+                resultado.textContent = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

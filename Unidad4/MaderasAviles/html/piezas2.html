@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Piezas - Tienda de Maderas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 20px;
+        }
+
+        h1, h2 {
+            color: #4e3b31;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        form {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #4e3b31;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            background-color: #f9f9f9;
+        }
+
+        input:focus, select:focus, button:focus {
+            border-color: #4e3b31;
+            outline: none;
+        }
+
+        button {
+            background-color: #8b5e3c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #704c33; 
+        }
+
+        /* Tabla */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            font-size: 16px;
+            background-color: #fff;
+        }
+
+        th {
+            background-color: #8b5e3c;
+            color: #fff;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f4f4f4;
+        }
+
+        tr:hover {
+            background-color: #e8e8e8;
+        }
+
+        /* Botón Listar */
+        .list-button {
+            background-color: #8b5e3c;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .list-button:hover {
+            background-color: #704c33;
+        }
+
+        .form-title {
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+            color: #4e3b31;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Piezas - Tienda de Maderas</h1>
+
+        <!-- Formulario para agregar/editar piezas -->
+        <form id="formPieza">
+            <h2 class="form-title">Alta/Modificación de Piezas</h2>
+            <label for="numeroPieza">Número de Pieza:</label>
+            <input type="number" id="numeroPieza" required>
+
+            <label for="numeroPedido">Número de Pedido:</label>
+            <input type="number" id="numeroPedido" required>
+
+            <label for="largo">Largo (cm):</label>
+            <input type="number" id="largo" step="0.01" required>
+
+            <label for="ancho">Ancho (cm):</label>
+            <input type="number" id="ancho" step="0.01" required>
+
+            <label for="grosor">Grosor (cm):</label>
+            <input type="number" id="grosor" step="0.01" required>
+
+            <label for="color">Color:</label>
+            <input type="text" id="color" required>
+
+            <label for="ambasCaras">¿Ambas Caras Chapeadas?</label>
+            <select id="ambasCaras">
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+            </select>
+
+            <label for="cortada">¿Cortada?</label>
+            <select id="cortada">
+                <option value="true">Sí</option>
+                <option value="false">No</option>
+            </select>
+
+            <button type="button" onclick="manejarPieza()">Guardar Pieza</button>
+        </form>
+
+        <!-- Formulario para eliminar piezas -->
+        <form id="formEliminar">
+            <h2 class="form-title">Baja de Piezas</h2>
+            <label for="eliminarNumeroPieza">Número de Pieza a Eliminar:</label>
+            <input type="number" id="eliminarNumeroPieza" required>
+            <button type="button" onclick="eliminarPiezaHTML()">Eliminar Pieza</button>
+        </form>
+
+        <!-- Botón Listar Piezas -->
+        <button class="list-button" type="button" onclick="listarPiezasHTML()">Listar Todas las Piezas</button>
+
+        <!-- Tabla para listar piezas -->
+        <h2>Consulta de Piezas</h2>
+        <table id="tablaPiezas">
+            <thead>
+                <tr>
+                    <th>Número de Pieza</th>
+                    <th>Número de Pedido</th>
+                    <th>Largo (cm)</th>
+                    <th>Ancho (cm)</th>
+                    <th>Grosor (cm)</th>
+                    <th>Color</th>
+                    <th>Ambas Caras</th>
+                    <th>Cortada</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filas generadas dinámicamente -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../js/piezas.js"></script>
+    <script>
+        function manejarPieza() {
+            const nuevaPieza = {
+                numeroPieza: parseInt(document.getElementById('numeroPieza').value),
+                numeroPedido: parseInt(document.getElementById('numeroPedido').value),
+                largo: parseFloat(document.getElementById('largo').value),
+                ancho: parseFloat(document.getElementById('ancho').value),
+                grosor: parseFloat(document.getElementById('grosor').value),
+                color: document.getElementById('color').value,
+                ambasCaras: document.getElementById('ambasCaras').value === 'true',
+                cortada: document.getElementById('cortada').value === 'true'
+            };
+
+            if (agregarPieza(nuevaPieza)) {
+                alert('Pieza agregada/modificada con éxito.');
+                listarPiezasHTML();
+            } else {
+                alert('Error al agregar/modificar la pieza. Verifique los datos.');
+            }
+        }
+
+        function eliminarPiezaHTML() {
+            const numeroPieza = parseInt(document.getElementById('eliminarNumeroPieza').value);
+            eliminarPieza(numeroPieza);
+            listarPiezasHTML();
+        }
+
+        function listarPiezasHTML() {
+            const tablaBody = document.getElementById('tablaPiezas').querySelector('tbody');
+            tablaBody.innerHTML = '';
+
+            piezas.forEach(pieza => {
+                const fila = document.createElement('tr');
+
+                for (const key in pieza) {
+                    const celda = document.createElement('td');
+                    celda.textContent = pieza[key];
+                    fila.appendChild(celda);
+                }
+
+                tablaBody.appendChild(fila);
+            });
+        }
+    </script>
+</body>
+</html>

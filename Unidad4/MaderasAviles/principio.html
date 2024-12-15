@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f4f1e1; 
+            color: #3e2c1c; 
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #4e3629; 
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 20px;
+            color: #5c4033; 
+        }
+
+        button {
+            font-size: 20px;
+            padding: 15px 30px;
+            margin: 20px;
+            cursor: pointer;
+            background-color: #8b5e3c; 
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #a76e48;
+        }
+
+        button:active {
+            background-color: #704c2d; 
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Bienvenido al Sistema de Gestión del Taller de Madera</h1>
+    <p>Seleccione una opción:</p>
+    
+    <button onclick="window.location.href = '/html/index3.html';">Gestión de Pedidos</button>
+    <button onclick="window.location.href = '/html/piezas2.html';">Gestión de Piezas</button>
+
+</body>
+</html>

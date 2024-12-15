@@ -1,110 +1,136 @@
-let piezas=JSON.parse(localStorage.getItem('piezas'))||[]
-class Piezas{
+// TODO Inicialización de lista de piezas desde LocalStorage
+let piezas = JSON.parse(localStorage.getItem("piezas")) || [];
 
-    //TODO creacion del constructor de la pieza
-    constructor(numero_pieza,numero_pedido,largo,ancho,grosor,color,chapeado,cortado){
-        if(!Number.isInteger(numero_pieza)||numero_pieza<1){
-            throw new Error('El numero de pieza debe ser mayor que 0')
-        }if(!Number.isInteger(numero_pedido)||numero_pedido<1){
-            throw new Error('El numero de pedido debe ser mayor que 0')
-        }if(largo<=0||ancho<=0||grosor<=0){
-            throw new Error('Largo ancho y grosor deben ser mayores que 0')
-        }if(typeof color!=='string'||color.length===0){
-            throw new Error('El color debe ser una cadena de caracteres')
-        }if(typeof ambas_caras!==Boolean){
-            throw new Error('El valor debe ser un boleano')
-        }if(typeof cortada!==Boolean){
-            throw new Error('El valor debe ser un boleano')
-        }
-        this.numero_pieza=numero_pieza
-        this.numero_pedido = numero_pedido
-        this._largo=largo
-        this._ancho=ancho
-        this._grosor=grosor
-        this._color=color
-        this._chapeado=chapeado
-        this._cortado=cortado
-        console.log(numero_pieza)
-    }
-    //TODO calcular superficies y volumenes
-    calculaSuperficie(){
-        return this._ancho*this._largo
-    }
-    calcularVolumen(){
-        return this._ancho*this._largo*this._grosor
+
+function guardarPiezas() {
+    try {
+        localStorage.setItem("piezas", JSON.stringify(piezas));
+    } catch (error) {
+        console.error("Error al guardar en LocalStorage:", error);
     }
 }
-    //TODO realizar metodos crud para los objetos pieza
-    
 
-    function annadir_pieza(nueva_pieza){
-        const {numero_pieza,numero_pedido,largo,ancho,grosor,color,chapeado,cortado}=nueva_pieza
-        if(!Number.isInteger(numero_pieza||numero_pieza<1)){
-            console.error('El numero de pieza debe ser mayor que 0')
-            return false
-        }if(piezas.some(piezas=>piezas.numero_pieza===numero_pieza)){
-            console.error('El id de esa pieza ya existe')
-            return false
-        }if(!Number.isInteger(numero_pedido)||numero_pedido<1){
-            console.error('El numero de pedido debe ser mayor que 0')
-        }if(largo<=0||ancho<=0||grosor<=0){
-            throw new error('Largo ancho y grosor deben ser mayores que 0')
-            return false
-        }if(typeof color!=='string'||color.length===0){
-            console.error('El color debe ser una cadena de caracteres')
-            return false
-        }if(typeof ambas_caras!==Boolean){
-            console.error('El valor debe ser un boleano')
-            return false
-        }if(typeof chapeado !== Boolean){
-            console.error('Chapeado debe ser boleano')
-            return false
-        }if(typeof cortado!==Boolean){
-            console.error('El valor debe ser un boleano')
-            return false
-        }
-        piezas.push(nueva_pieza)
-        localStorage('piezas',JSON.stringify(piezas))
-        console.log('Pieza añadida correctamente')
 
-    }
-    
-    function borrar_pieza(numero_pieza){
-        const indice=piezas.findIndex( Piezas=>  Piezas.numero_pieza=== numero_pieza)
-        if(indice=== -1){
-            throw new error('Esta pieza no se encuentra en el pedido')
-        }
-        piezas.splice(indice,1)
-        localStorage.setItem('piezas',JSON.stringify(piezas))
+function agregarPieza(nuevaPieza) {
+    const { numeroPieza } = nuevaPieza;
+
+    //TODO Validar que no exista el número de pieza
+    if (piezas.some(pieza => pieza.numeroPieza === numeroPieza)) {
+        console.error("El número de pieza ya existe.");
+        return false;
     }
 
-    function mod_pieza(nueva_pieza,mod_valor){
-        const indice=piezas.findIndex(Piezas=> Piezas.numero_pieza===numero_pieza)
-        if(indice===-1){
-            throw new error('Esta pieza no se encuentra en el pedido')
-        }
-        const pieza= piezas[indice]
-        if (mod_valor.largo > 0) pieza.largo = mod_valor.largo;
-        if (mod_valor.ancho > 0) pieza.ancho = mod_valor.ancho;
-        if (mod_valor.grosor > 0) pieza.grosor = mod_valor.grosor;
-        if (typeof mod_valor.color === 'string' && mod_valor.color.length > 0) {
-            pieza.color = mod_valor.color;
-             }
-        if (typeof mod_valor.chapeado === 'boolean') {
-            pieza.chapeado = mod_valor.chapeado;
-            } 
-        if (typeof mod_valor.cortado === 'boolean') {
-            pieza.cortado = mod_valor.cortado;
-            } 
-        localStorage.setItem('piezas',JSON.stringify(piezas))
+    try {
+        const pieza = new Pieza(
+            nuevaPieza.numeroPieza,
+            nuevaPieza.numeroPedido,
+            nuevaPieza.largo,
+            nuevaPieza.ancho,
+            nuevaPieza.grosor,
+            nuevaPieza.color,
+            nuevaPieza.ambasCaras,
+            nuevaPieza.cortada
+        );
 
+        piezas.push(pieza);
+        guardarPiezas();
+        console.log("Pieza agregada con éxito:", pieza);
+        return true;
+    } catch (error) {
+        console.error("Error al agregar la pieza:", error.message);
+        return false;
     }
-    function lee_pieza(numero_pieza){
-        const pieza=piezas.find(Piezas=> Piezas.nueva_pieza===numero_pieza)
-        if(!pieza){
-            console.error('Numero de pieza ${numero_pieza} no encontrado')
-            return null
+}
+
+
+function obtenerPiezasPorPedido(numeroPedido) {
+    return piezas.filter(pieza => pieza.numeroPedido === numeroPedido);
+}
+
+
+function listarPiezas() {
+    console.table(piezas);
+}
+
+function eliminarPieza(numeroPieza) {
+    const index = piezas.findIndex(pieza => pieza.numeroPieza === numeroPieza);
+    if (index !== -1) {
+        piezas.splice(index, 1);
+        guardarPiezas();
+        console.log(`Pieza ${numeroPieza} eliminada con éxito.`);
+    } else {
+        console.error(`No se encontró la pieza con el número ${numeroPieza}.`);
+    }
+}
+
+
+function modificarPieza(numeroPieza, datosActualizados) {
+    const pieza = piezas.find(pieza => pieza.numeroPieza === numeroPieza);
+    if (pieza) {
+        Object.assign(pieza, datosActualizados);
+        guardarPiezas();
+        console.log(`Pieza ${numeroPieza} modificada con éxito.`, pieza);
+    } else {
+        console.error(`No se encontró la pieza con el número ${numeroPieza}.`);
+    }
+}
+
+class Pieza {
+    constructor(numeroPieza, numeroPedido, largo, ancho, grosor, color = "Natural", ambasCaras = false, cortada = false) {
+        if (!Number.isInteger(numeroPieza) || numeroPieza < 1) {
+            throw new Error("El número de pieza debe ser un entero mayor o igual a 1.");
         }
-        console.log('Pieza encontrada',pieza)
-        return pieza
+        if (!Number.isInteger(numeroPedido) || numeroPedido < 1) {
+            throw new Error("El número de pedido debe ser un entero mayor o igual a 1.");
+        }
+        if (largo <= 0 || ancho <= 0 || grosor <= 0) {
+            throw new Error("Largo, ancho y grosor deben ser mayores a 0.");
+        }
+        if (typeof color !== "string" || color.length === 0) {
+            throw new Error("El color debe ser una cadena de texto válida.");
+        }
+        if(color=='natural'&& ambasCaras===true){
+            throw new Error("Si el color de la pieza es natural no tiene chapeado.");
+        }
+        if (typeof ambasCaras !== "boolean") {
+            throw new Error("El valor de 'ambasCaras' debe ser booleano.");
+        }
+        if (typeof cortada !== "boolean") {
+            throw new Error("El valor de 'cortada' debe ser booleano.");
+        }
+
+        this.numeroPieza = numeroPieza;
+        this.numeroPedido = numeroPedido;
+        this.largo = largo;
+        this.ancho = ancho;
+        this.grosor = grosor;
+        this.color = color;
+        this.ambasCaras = ambasCaras;
+        this.cortada = cortada;
     }
+
+
+    calcularSuperficie() {
+        return this.largo * this.ancho;
+    }
+
+    calcularVolumen() {
+        return this.largo * this.ancho * this.grosor;
+    }
+
+    mostrarDetalles() {
+        return `
+            Número de Pieza: ${this.numeroPieza}
+            Número de Pedido: ${this.numeroPedido}
+            Largo: ${this.largo} cm
+            Ancho: ${this.ancho} cm
+            Grosor: ${this.grosor} cm
+            Color: ${this.color}
+            Ambas Caras Chapeadas: ${this.ambasCaras ? "Sí" : "No"}
+            Cortada: ${this.cortada ? "Sí" : "No"}
+            Superficie: ${this.calcularSuperficie()} cm²
+            Volumen: ${this.calcularVolumen()} cm³
+        `;
+    }
+}
+
