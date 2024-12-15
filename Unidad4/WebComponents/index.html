@@ -7,10 +7,35 @@
 </head>
 <body>
     <template id="plantilla-tarjeta">
-
+        <p>
+            <span class="titulo"></span>: <span class="subtitulo"></span>
+        </p>
     </template>
+    <div id="tarjeta-titulos"></div>
 </body>
 <script>
-    
+    const titulos = [
+        {
+            titulo: "Las cinco semillas de naranja",
+            subtitulo: "La entrega de una carta inofensiva seguida de la muerte.",
+        },
+        {
+            titulo: "Estudio en escarlata",
+            subtitulo: "El Dr. Watson conoce a Sherlock Holmes",
+        },
+        {
+            titulo: "El perro de Baskerville",
+            subtitulo: "Un perro misterioso aterroriza a una ciudad.",
+        },
+    ];
+        const fragmento=document.getElementById('plantilla-tarjeta')
+        titulos.forEach((t)=>{
+            const instancia=document.importNode(fragmento.content,true)
+            instancia.querySelector('.titulo').innerHTML=t.titulo
+            instancia.querySelector('.subtitulo').innerHTML=t.subtitulo
+            document.getElementById('tarjeta-titulos').appendChild(instancia)
+        })
+
+
 </script>
 </html>
