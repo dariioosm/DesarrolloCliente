@@ -4,8 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/themes/base/jquery-ui.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnify/2.3.3/js/jquery.magnify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnify/2.3.3/css/magnify.css"></script>
+    <style>
+        #sortable {list-style-type: none; margin: 0; padding: 0; width: 60%;}
+        #sortable li {margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em;
+            font-size: 1.4em; height: 10px;}
+        #sortable li span{position: absolute; margin-left: -1.3em;}
+    </style>
+        
 </head>
 <body>
-    
+    <ul id="sort-container">
+        <li class="ui-state-default">
+            <span class="ui-icon ui-icon-arrowthick-2-n-2"></span>Juan
+        </li>
+        <li class="ui-state-default">
+            <span class="ui-icon ui-icon-arrowthick-2-n-2"></span>Paula
+        </li>
+        <li class="ui-state-default">
+            <span class="ui-icon ui-icon-arrowthick-2-n-2"></span>Jorge
+        </li>
+        <li class="ui-state-default">
+            <span class="ui-icon ui-icon-arrowthick-2-n-2"></span>Juan
+        </li>
+        <li class="ui-state-default">
+            <span class="ui-icon ui-icon-arrowthick-2-n-2"></span>Rita
+        </li>
+        <li class="ui-state-default">
+            <span class="ui-icon ui-icon-arrowthick-2-n-2"></span>Pedro
+        </li>
+        <li class="ui-state-default">
+            <span class="ui-icon ui-icon-arrowthick-2-n-2"></span>Sara
+        </li>
+    </ul>
+    <script>
+        $(function () {
+            $('#sort-container').sortable({
+                opacity:0.5,
+                cursor:"move",
+                axis:"y"
+            });
+        });
+    </script>
+    <button>boton</button>
+    <div class="dlg" title="dialogo basico">
+        <p>Mi dialogo basico se puede mover, redimensionar y cerrar</p>
+    </div>
+    <script>
+        $(function(){
+            $('.dlg').dialog();
+        });
+    </script>
+    <img src="worldrugby.png"  class="zoom" data-magnify-src="worldrugby-copia.png">
+    <script>
+        $(document).ready(function(){
+            $('.zoom').magnify();
+        });
+    </script>
 </body>
 </html>
