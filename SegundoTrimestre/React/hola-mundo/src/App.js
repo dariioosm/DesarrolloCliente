@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Acercade from './components/Acercade';
 function App() {
+  const nombre= 'Dario'
   return (
     <div className="App">
       <header className="App-header">
@@ -17,7 +18,9 @@ function App() {
         >
           Learn React
         </a>
+        <h1> Hola {nombre}</h1>
       </header>
+      <Acercade/>
     </div>
   );
 }
