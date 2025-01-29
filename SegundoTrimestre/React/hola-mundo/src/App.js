@@ -2,9 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import Acercade from './components/Acercade';
 function App() {
+    //? comentario JS
   const nombre= 'Dario'
   return (
-    <div className="App">
+    <div className="App"> 
+                            {/* soy un comentario 
+                            de varias lineas en JSX*/}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
