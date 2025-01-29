@@ -5,6 +5,7 @@ import Variables from './components/Variables';
 import Variables2 from './components/Variables2';
 import { AdiosMundo } from './components/Adiosmundo';
 import Bucles from './components/Bucles.';
+import Saludar from './components/Saludar';
 function App() {
     //? comentario JS
   const nombre= 'Dario'
@@ -24,9 +25,10 @@ function App() {
         >
           Learn React
         </a>
+        <Saludar nombre="Juan Alberto" edad="30"/>
         <h1> Hola {nombre}</h1>
       </header>
-      <AdiosMundo/>
+      <AdiosMundo style="Barroco" idioma="Español"/>
       <Acercade/>
     </div>
   );
