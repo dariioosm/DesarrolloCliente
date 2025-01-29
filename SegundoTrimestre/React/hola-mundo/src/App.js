@@ -4,6 +4,7 @@ import Acercade from './components/Acercade';
 import Variables from './components/Variables';
 import Variables2 from './components/Variables2';
 import { AdiosMundo } from './components/Adiosmundo';
+import Bucles from './components/Bucles.';
 function App() {
     //? comentario JS
   const nombre= 'Dario'
@@ -14,6 +15,7 @@ function App() {
       <header className="App-header">
         <Variables/>
         <Variables2/>
+        <Bucles/>
         <a
           className="App-link"
           href="https://reactjs.org"
