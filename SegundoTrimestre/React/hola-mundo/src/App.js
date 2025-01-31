@@ -9,6 +9,7 @@ import Saludar from './components/Saludar';
 import EjemploEstado from './components/EjemploEstado';
 import EjemploEstado2 from './components/EjemploEstado2';
 import EjemploEstado3 from './components/EjemploEstado3';
+import Visor from './components/Visor';
 function App() {
     //? comentario JS
   const nombre= 'Dario'
@@ -20,6 +21,7 @@ function App() {
         <EjemploEstado/>
         <EjemploEstado2/>
         <EjemploEstado3/>
+        <Visor/>
         <a
           className="App-link"
           href="https://reactjs.org"
