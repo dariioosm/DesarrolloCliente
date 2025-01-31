@@ -7,6 +7,8 @@ import { AdiosMundo } from './components/Adiosmundo';
 import Bucles from './components/Bucles.';
 import Saludar from './components/Saludar';
 import EjemploEstado from './components/EjemploEstado';
+import EjemploEstado2 from './components/EjemploEstado2';
+import EjemploEstado3 from './components/EjemploEstado3';
 function App() {
     //? comentario JS
   const nombre= 'Dario'
@@ -16,6 +18,8 @@ function App() {
                             de varias lineas en JSX*/}
       <header className="App-header">
         <EjemploEstado/>
+        <EjemploEstado2/>
+        <EjemploEstado3/>
         <a
           className="App-link"
           href="https://reactjs.org"
