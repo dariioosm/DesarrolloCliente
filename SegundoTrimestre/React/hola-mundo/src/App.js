@@ -6,6 +6,7 @@ import Variables2 from './components/Variables2';
 import { AdiosMundo } from './components/Adiosmundo';
 import Bucles from './components/Bucles.';
 import Saludar from './components/Saludar';
+import EjemploEstado from './components/EjemploEstado';
 function App() {
     //? comentario JS
   const nombre= 'Dario'
@@ -14,9 +15,7 @@ function App() {
                           {/* soy un comentario 
                             de varias lineas en JSX*/}
       <header className="App-header">
-        <Variables/>
-        <Variables2/>
-        <Bucles/>
+        <EjemploEstado/>
         <a
           className="App-link"
           href="https://reactjs.org"
