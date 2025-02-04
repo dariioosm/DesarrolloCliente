@@ -10,9 +10,8 @@ import EjemploEstado from './components/EjemploEstado';
 import EjemploEstado2 from './components/EjemploEstado2';
 import EjemploEstado3 from './components/EjemploEstado3';
 import Visor from './components/Visor';
+import '@testing-library/jest-dom'
 function App() {
-    //? comentario JS
-  const nombre= 'Dario'
   return (
     <div className="App"> 
                           {/* soy un comentario 
