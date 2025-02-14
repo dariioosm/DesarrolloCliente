@@ -5,19 +5,18 @@ import Home from './components/pages/home';
 import Renderizable from './components/pages/Renderizable';
 import RenderizadorSinCambio from './components/pages/renderizableSinProps';
 import noRenderizador from './components/pages/renderizableConProps';
-
+import MiComponente from './components/micomponente';
+import AlternaMensaje from './components/AlternaMensaje';
 function App() {
   return (
     //<Routes>
      // <Route path='/' element={<Home/>}/>
      // <Route path='/producto/:id' element={<Produto/>}/>
     //</Routes>
-    <main>
-      <h4>Re-renderizado sin cambiar las propiedades</h4>
-      <Renderizable/>
-      <h4>Re-renderizado cambiando las propiedades</h4>
-      <noRenderizador/>
-    </main>
+    <>
+    <MiComponente></MiComponente>
+    <AlternaMensaje></AlternaMensaje>
+    </>
   );
 }
 
