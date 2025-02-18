@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import Home from './components/pages/home';
-import Renderizable from './components/pages/Renderizable';
-import RenderizadorSinCambio from './components/pages/renderizableSinProps';
-import noRenderizador from './components/pages/renderizableConProps';
-import MiComponente from './components/micomponente';
-import AlternaMensaje from './components/AlternaMensaje';
+import Encabezado from './components/Encabezado';
+import Pie from './components/Pie';
+import { AppContext, valoresDefecto } from './AppContext';
+import Saludo from './components/Saludo';
+import Formulario from './components/Formularios';
 function App() {
   return (
-    //<Routes>
-     // <Route path='/' element={<Home/>}/>
-     // <Route path='/producto/:id' element={<Produto/>}/>
-    //</Routes>
-    <>
-    <MiComponente></MiComponente>
-    <AlternaMensaje></AlternaMensaje>
-    </>
+    <div className="App">
+      <AppContext.Provider value={valoresDefecto}>
+        <Encabezado />
+        <div>Esto simplemente es contenido.</div>
+        <Pie />
+      </AppContext.Provider>
+      <Saludo nombre='Dario'></Saludo>
+    </div>
   );
 }
-
 export default App;
