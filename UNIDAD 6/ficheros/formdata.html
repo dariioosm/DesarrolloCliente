@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const procesarDatos = (datos) => 
+        (
+            {
+                nombreusuario: datos.nombre.trim().toUpperCase(),
+                email: datos.email.toLowerCase()
+            }
+        )
+        document.addEventListener('DOMContentLoaded',()=>{
+            const formulario = document.querySelector('#infoUsuario')
+            formulario.addEventListener('submit',(e)=>{
+                e.preventDefault()
+                const formData = new FormData(formulario)
+                const datosProcesados = procesarDatos(
+                    {
+                        nombre: formData.get('nombre'),
+                        email: formData.get('email')
+                    }
+                )
+            })
+        })
+    </script>
+</head>
+<body>
+    <p>
+        <label for="nombre">Introduce tu nombre de usuario</label>
+        <input type="text" name="nombre" id="nombre">
+    </p>
+</body>
+</html>
