@@ -23,11 +23,13 @@
                         email: formData.get('email')
                     }
                 )
+                console.log('Datos procesados: ',datosProcesados)
             })
         })
     </script>
 </head>
-<body>
+<body>  
+   <form action="" id="infoUsuario">
     <p>
         <label for="nombre">Introduce tu nombre de usuario</label>
         <input type="text" name="nombre" id="nombre" value="Dario">
@@ -35,7 +37,9 @@
     
     <p>
         <label for="email">Introduce tu correo</label>
-        <input type="email" name="email" id="email" value="dario">
+        <input type="email" name="email" id="email">
     </p>
+    <button type="submit">Enviar</button>
+   </form>
 </body>
 </html>
