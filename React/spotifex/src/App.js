@@ -1,11 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import SpotiMain from '../src/App';
+import SpotiMain from './components/SpotiMain';
+
 function App() {
   return (
-    <>
-    <SpotiMain/>
-    </>
+    <div className="App">
+      <SpotiMain />
+    </div>
   );
 }
 
