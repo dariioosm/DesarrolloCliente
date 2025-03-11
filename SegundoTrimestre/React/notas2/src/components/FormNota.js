@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 const FormData = ([nota, onSave, onCancel]) => {
-    const [texto, setTecto] = useState('')
+    const [texto, setTexto] = useState('')
     const [importancia, setImportancia] = useState(3)
     const envioEvt = (e) => {
         e.preventDefaul()
@@ -28,8 +28,7 @@ const FormData = ([nota, onSave, onCancel]) => {
             <h2>{nota ? "Actualizar" : "Añadir"}</h2>
             <label>
                 Texto:
-                <input type="text" value={texto} onChange={(e) => setTexto(e.target.value)}
-                    required />
+                <input type="text" value={texto} onChange={(e) => setTexto(e.target.value)}required />
             </label>
             <label>
                 Importancia (1-5):
