@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 const FiltradoCanciones = ({ canciones }) => {
     const [filtro, setFiltro] = useState("");
-  
-    const cancionesFiltradas = canciones.filter((cancion) =>
+  console.log('mensaje de prueba',canciones)
+    const cancionesFiltradas = canciones?.filter((cancion) =>
       cancion.track_artist.toLowerCase().includes(filtro.toLowerCase())
     );
   

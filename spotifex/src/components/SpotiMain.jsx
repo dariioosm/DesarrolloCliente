@@ -11,7 +11,7 @@ const SpotiMain = () => {
       const fetchCanciones = async () => {
         try {
           const response = await fetch("/json/Spotify.json");
-          const data = await response.text();
+          const data = await response.json();
           setCanciones(data);
         } catch (error) {
           console.error("Error al cargar las canciones", error);
