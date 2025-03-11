@@ -10,7 +10,7 @@ const SpotiMain = () => {
     useEffect(() => {
       const fetchCanciones = async () => {
         try {
-          const response = await fetch("../../public/json/Spotify.json");
+          const response = await fetch("/json/Spotify.json");
           const data = await response.text();
           setCanciones(data);
         } catch (error) {
