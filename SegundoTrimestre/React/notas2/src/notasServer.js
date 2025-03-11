@@ -1,4 +1,4 @@
-const url= "http://localhost:8000/notas.php"
+const url= "http://localhost:8080/notas.php"
 export const getAllNotas = async()=>{
     try{
         const respuesta = await fetch(url)

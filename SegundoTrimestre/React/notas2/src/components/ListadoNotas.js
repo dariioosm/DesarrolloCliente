@@ -1,6 +1,6 @@
 import "./ListadoNotas.css"
 import {useState,useEffect} from "react"
-import { getAllNotas,deleteNota,updateNota,addNota } from "./notasServer"
+import { getAllNotas,deleteNota,updateNota,addNota } from "../notasServer"
 const ListadoNotas = () =>{
     const[notas,setNotas]= useState([]);
     const[notaActual,setNotaActual] = useState(null)
@@ -19,6 +19,11 @@ const ListadoNotas = () =>{
         setNotaActual(nota)
         setFormVisible(true)
     }
+    return(
+        <>
+            <button onClick={()=> showForm()}>Añadir nota</button>
+        </>
+    )
     const updateNotaEvt = (nota) => showForm(nota);
     const deleteNotaEvt = async(idNota) =>{
         let mensajeError = "Se ha producido un error al borrar la nota con el identificador",nota
