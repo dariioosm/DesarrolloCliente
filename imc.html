@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+        input, button { margin: 10px 0; padding: 10px; width: 100%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registro de Personas</h2>
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="number" id="peso" placeholder="Peso (kg)">
+        <input type="number" id="altura" placeholder="Altura (m)" step="0.01">
+        <button onclick="agregarPersona()">Añadir Persona</button>
+        <button onclick="modificarPersona()">Modificar Persona</button>
+        <button onclick="calcularIMC()">Calcular IMC</button>
+    </div>
+    <div class="container">
+        <h3>Resultados</h3>
+        <ul id="listaPersonas"></ul>
+        <h3>Personas fuera del peso normal</h3>
+        <ul id="listaIMC"></ul>
+    </div>
+    
+    <script>
+        class Persona {
+            constructor(nombre, peso, altura) {
+                this.nombre = nombre;
+                this.peso = parseFloat(peso);
+                this.altura = parseFloat(altura);
+            }
+        }
+        
+        class IMC_Calculo {
+            constructor(nombre, imc) {
+                this.nombre = nombre;
+                this.imc = imc;
+            }
+        }
+        
+        let personas = [];
+        let imcResultados = [];
+
+        function agregarPersona() {
+            let nombre = document.getElementById('nombre').value;
+            let peso = document.getElementById('peso').value;
+            let altura = document.getElementById('altura').value;
+            
+            if (nombre && peso && altura) {
+                personas.push(new Persona(nombre, peso, altura));
+                actualizarLista();
+            } else {
+                alert("Por favor, complete todos los campos correctamente.");
+            }
+        }
+
+        function modificarPersona() {
+            let nombre = document.getElementById('nombre').value;
+            let peso = document.getElementById('peso').value;
+            let altura = document.getElementById('altura').value;
+            
+            let persona = personas.find(p => p.nombre === nombre);
+            if (persona) {
+                persona.peso = parseFloat(peso);
+                persona.altura = parseFloat(altura);
+                actualizarLista();
+            } else {
+                alert("Persona no encontrada.");
+            }
+        }
+
+        function calcularIMC() {
+            imcResultados = [];
+            personas.forEach(persona => {
+                let imc = persona.peso / (persona.altura * persona.altura);
+                let estado;
+                
+                if (imc < 18.49) {
+                    estado = "Demasiado delgado";
+                } else if (imc <= 24.99) {
+                    estado = "Peso normal";
+                } else {
+                    estado = "Demasiado obeso";
+                }
+                
+                if (estado !== "Peso normal") {
+                    imcResultados.push(new IMC_Calculo(persona.nombre, imc.toFixed(2)));
+                }
+            });
+            actualizarListaIMC();
+        }
+
+        function actualizarLista() {
+            let lista = document.getElementById('listaPersonas');
+            lista.innerHTML = '';
+            personas.forEach(p => {
+                let item = document.createElement('li');
+                item.textContent = `${p.nombre} - Peso: ${p.peso}kg, Altura: ${p.altura}m`;
+                lista.appendChild(item);
+            });
+        }
+
+        function actualizarListaIMC() {
+            let lista = document.getElementById('listaIMC');
+            lista.innerHTML = '';
+            imcResultados.forEach(i => {
+                let item = document.createElement('li');
+                item.textContent = `${i.nombre} - IMC: ${i.imc}`;
+                lista.appendChild(item);
+            });
+        }
+    </script>
+</body>
+</html>
