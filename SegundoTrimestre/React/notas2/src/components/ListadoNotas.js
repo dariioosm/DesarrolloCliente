@@ -1,6 +1,6 @@
 import "./ListadoNotas.css"
 import {useState,useEffect} from "react"
-import { getAllNotas,deleteNota,updateNota,addNota } from "./notasServer"
+import { getAllNotas,deleteNota,updateNota,addNota } from "../notasServer"
 const ListadoNotas = () =>{
     const[notas,setNotas]= useState([]);
     const[notaActual,setNotaActual] = useState(null)
@@ -19,9 +19,10 @@ const ListadoNotas = () =>{
         setNotaActual(nota)
         setFormVisible(true)
     }
+   
     const updateNotaEvt = (nota) => showForm(nota);
     const deleteNotaEvt = async(idNota) =>{
-        let mensajeError = "Se ha producido un error al borrar la nota con el identificador",nota
+        let mensajeError = `Se ha producido un error al borrar la nota con el identificador ${idNota}`
         try{
             const exito = await deleteNota(idNota)
             if(!exito) alert(mensajeError)
@@ -50,9 +51,48 @@ const ListadoNotas = () =>{
             alert('Se ha producido un nuevo error', error)
         }
     }
-
     useEffect(
         ()=> {loadNotas()},[]
     )
+
+    return(
+        <>
+            <button onClick={()=> showForm()}>Añadir nota</button>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Texto</th>
+                        <th>Importancia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {notas?.map(
+                        (nota) =>(
+                            <tr key={nota.id} className="fila">
+                                <td className="celda-id">{nota.id}</td>
+                                <td className="celda-texto">{nota.tecto}</td>
+                                <td className="celda-imortancia">{nota.importancia}</td>
+                                <td>
+                                    <button onClick={()=>updateNotaEvt(nota)}>Actualizar</button>
+                                    <button onClick={()=>deleteNotaEvt(nota)}>Eliminar</button>
+                                </td>
+                            </tr>
+
+                        )
+                    )}
+                </tbody>
+            </table>
+            {
+                formvisibile && (
+                    <FormNota nota={notaActual} 
+                                onSave = {saveNotaEvt}
+                                onCancel={()=>setFormVisible(false)}/>
+                )
+            }
+        </>
+    )
+
+    
 }
 export default ListadoNotas;
