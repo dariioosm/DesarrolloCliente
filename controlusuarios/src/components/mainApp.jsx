@@ -7,7 +7,7 @@ const mainApp = () =>{
 
     useEffect(()=>{
         const fetchUsuarios = async ()=>{
-            const respuesta = await fetch( );
+            const respuesta = await fetch(      );
         }
     })
 }
