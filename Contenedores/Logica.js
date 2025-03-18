@@ -1,3 +1,14 @@
+const submenuBtns=document.querySelector('.submenu-btn');
+submenuBtns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        const submenu= btn.nextElementSibling;
+        if(submenu){
+            submenu.classList.togle('open')
+        }
+    })
+})
+
+
 class Contenedor{
     constructor(referencia,peso,volumen){
         this.referencia=referencia;
