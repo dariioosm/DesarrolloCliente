@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         table {
+            width: 100px;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Contenedores</h1>
+    <h2>Añade un contenedor</h2>
+    <form action="" id="formAnnade">
+        <label>Referencia:<input type="text" name=""  id="referencia"></label>
+        <label>Peso<input type="number" name="" step="0.1" id="peso"></label>
+        <label>Volumen<input type="number" name="" step="0.01" id="volumen" required></label>
+        <button type="submit">Añadir</button>
+    </form>
+    <br>
+    <h2>Modifica un contenedor</h2>
+    <form action=""id="formMod">
+        <label>Referencia:<input type="text" name=""  id="modNombre"></label>
+        <label>Peso<input type="number" name="" step="0.1" id="modPeso"></label>
+        <label>Volumen<input type="number" name="" id="modVolumen" required></label>
+        <button type="submit" id="formAnnade">modifica</button>
+    </form>
+    <button id="calcula">Calcular Densidad</button>
+    <h2>Listado de contenedores</h2>
+    <table id="tablacontenedores">
+        <thead>
+            <tr>
+                <th>Referencia</th>
+                <th>Peso</th>
+                <th>Volumen</th>
+                <th>Densidad</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <h2>Contenedores con Alta densidad</h2>
+    <table id="tablacontenedoresdensos">
+        <thead>
+            <tr>
+                <td>Referencia</td>
+                <td>Densidad</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="./Logica.js"></script>
+</body>
+</html>
